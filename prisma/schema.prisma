@@ -12,3 +12,12 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Event {
+  id               String @id @default(uuid())
+  name             String @db.VarChar(255)
+  slug             String
+  attendeesNumbers Int    @map("attendees_numbers")
+
+  @@map("events")
+}
