@@ -8,8 +8,9 @@ import {
   Delete,
 } from '@nestjs/common';
 import { AttendeesService } from './services/attendees.service';
-import { CreateAttendeeDto } from './dto/create-attendee.dto';
-import { UpdateAttendeeDto } from './dto/update-attendee.dto';
+import { CreateAttendeeDto } from './Dto/create-attendee.dto';
+import { UpdateAttendeeDto } from './Dto/update-attendee.dto';
+
 
 @Controller('attendees')
 export class AttendeesController {
