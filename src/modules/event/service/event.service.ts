@@ -1,4 +1,4 @@
-import { BadRequestException, ForbiddenException, Inject, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { IcreateEventService } from '../structure/service.structure';
 import { IEventRepository } from '../structure/repository.structure';
 import { createEventTypeParams } from '../types/event_params';
