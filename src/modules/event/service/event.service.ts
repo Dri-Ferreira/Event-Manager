@@ -1,6 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
-import { CreateEventDto } from '../Dto/create-event.dto';
-import { UpdateEventDto } from '../Dto/update-event.dto';
+import { BadRequestException, ForbiddenException, Inject, Injectable } from '@nestjs/common';
 import { IcreateEventService } from '../structure/service.structure';
 import { IEventRepository } from '../structure/repository.structure';
 import { createEventTypeParams } from '../types/event_params';
@@ -15,6 +13,12 @@ export class EventService implements IcreateEventService{
   ){}
   
   async execute(params: createEventTypeParams): Promise<eventResponse> {
+
+    const eventAlreadyExists = await this.eventRepo.exists({
+      slug: params.slug,
+    });
+
+    if (eventAlreadyExists !== null) throw new BadRequestException("Event already created on the platform");
     const event = await this.eventRepo.register(params)
     return event
   }
