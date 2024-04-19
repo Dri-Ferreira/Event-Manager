@@ -1,7 +1,7 @@
 import { Controller, Post, Body, Inject } from '@nestjs/common';
 import { EventService } from './service/event.service';
 import { CreateEventDto } from './Dto/create-event.dto';
-import { UpdateEventDto } from './Dto/update-event.dto';
+
 
 @Controller('events')
 export class EventController {
@@ -13,4 +13,5 @@ export class EventController {
   create(@Body() createEvent: CreateEventDto) {
     return this.eventService.execute(createEvent);
   }
+
 }

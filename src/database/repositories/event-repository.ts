@@ -1,5 +1,6 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma.service";
+import { Event } from '@prisma/client';
 import { IEventRepository } from "src/modules/event/structure/repository.structure";
 import { createEventTypeParams } from "src/modules/event/types/event_params";
 import { eventResponse } from "src/modules/event/types/event-response/event_response";
@@ -17,6 +18,14 @@ export class EventRepository implements IEventRepository {
                 details,
                 maximumAttendees
              }
+        })
+    }
+
+    exists(where: Partial<Event> | null): Promise<Event> {
+        return this.prisma.event.findUnique({
+            where: {
+                slug: where.slug
+            }
         })
     }
     
