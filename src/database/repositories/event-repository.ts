@@ -1,7 +1,7 @@
 import { Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma.service";
 import { Event } from '@prisma/client';
-import { IEventRepository } from "src/modules/event/structure/repository.structure";
+import { IEventRepository } from "src/modules/event/structure/repository-event-structure";
 import { createEventTypeParams } from "src/modules/event/types/event_params";
 import { eventResponse } from "src/modules/event/types/event-response/event_response";
 

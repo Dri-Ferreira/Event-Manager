@@ -1,6 +1,6 @@
 import { BadRequestException, Inject, Injectable } from '@nestjs/common';
-import { IcreateEventService } from '../structure/service.structure';
-import { IEventRepository } from '../structure/repository.structure';
+import { IcreateEventService } from '../structure/service-event-structure';
+import { IEventRepository } from '../structure/repository-event-structure';
 import { createEventTypeParams } from '../types/event_params';
 import { EventRepository } from 'src/database/repositories/event-repository';
 import { eventResponse } from '../types/event-response/event_response';
