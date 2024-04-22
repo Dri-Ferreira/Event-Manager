@@ -8,3 +8,4 @@ export interface IEventRepository {
     register(params: createEventTypeParams): Promise<eventResponse>
     exists(where: Partial<Event> | null): Promise<Event>
 }
+
