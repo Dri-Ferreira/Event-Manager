@@ -14,7 +14,7 @@ export class AttendeesController {
 
   @Post()
   create(@Body() createAttendeeDto: CreateAttendeeDto) {
-    return this.attendeesService.create(createAttendeeDto);
+    return this.attendeesService.createAttendees(createAttendeeDto);
   }
 
 }
