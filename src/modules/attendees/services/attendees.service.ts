@@ -12,7 +12,7 @@ export class AttendeesService implements ICreateAttendeesService{
     @Inject(AttendeesRepository)
     private readonly attendeesRepo: IAttendeesRepository,
   ) { }
-  createAttendees(param: createAttendeesTypeParams): Promise<attendeesResponse> {
-    throw new Error('Method not implemented.');
+  async createAttendees(params: createAttendeesTypeParams): Promise<attendeesResponse> {
+    return await this.attendeesRepo.create(params);
   }
 }
