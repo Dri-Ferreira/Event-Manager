@@ -1,7 +1,7 @@
 export type attendeesResponse = {
-  id: string;
+  id: number;
   name: string;
   email: string;
   eventId: string;
-  create_at: Date;
+  
 };

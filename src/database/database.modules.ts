@@ -11,7 +11,8 @@ import { AttendeesRepository } from './repositories/attendees-repository';
     AttendeesRepository
   ],
   exports: [
-    EventRepository
+    EventRepository,
+    AttendeesRepository
   ],
 })
 
