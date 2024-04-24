@@ -29,4 +29,9 @@ export class EventRepository implements IEventRepository {
         })
     }
     
+    searchEventsAll(): Promise<Event[]>{
+        return this.prisma.event.findMany()
+    }
+        
+    
 }

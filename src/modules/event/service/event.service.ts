@@ -22,4 +22,8 @@ export class EventService implements IcreateEventService{
     const event = await this.eventRepo.register(params)
     return event
   }
+
+  async searchEventsAll(): Promise<eventResponse[]> {
+    return await this.eventRepo.searchEventsAll()
+  }
 }

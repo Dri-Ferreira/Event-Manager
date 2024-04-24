@@ -1,4 +1,4 @@
-import { Controller, Post, Body, Inject } from '@nestjs/common';
+import { Controller, Post, Body, Get, Inject } from '@nestjs/common';
 import { EventService } from './service/event.service';
 import { CreateEventDto } from './Dto/create-event.dto';
 
@@ -14,4 +14,8 @@ export class EventController {
     return this.eventService.execute(createEvent);
   }
 
+  @Get()
+  searchEventAll(){
+    return this.eventService.searchEventsAll();
+  }
 }
