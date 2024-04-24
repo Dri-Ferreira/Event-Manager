@@ -7,6 +7,15 @@ import { Attendee } from '@prisma/client';
 @Injectable()
 export class AttendeesRepository implements IAttendeesRepository {
   constructor(private readonly prisma: PrismaService) {}
+
+  exists(where: Partial<Attendee>): Promise<Attendee> {
+    return this.prisma.attendee.findUnique({
+      where: {
+        email: where.email,
+      }
+    })
+  }
+
   create(params: createAttendeesTypeParams): Promise<Attendee> {
     return this.prisma.attendee.create({
       data: {

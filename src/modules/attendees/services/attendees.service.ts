@@ -1,4 +1,4 @@
-import { Inject, Injectable } from '@nestjs/common';
+import { BadRequestException, Inject, Injectable } from '@nestjs/common';
 import { ICreateAttendeesService } from '../structure/service-attendees-structure';
 import { IAttendeesRepository } from '../structure/repository-attendees-structure';
 import { AttendeesRepository } from 'src/database/repositories/attendees-repository';
@@ -13,6 +13,10 @@ export class AttendeesService implements ICreateAttendeesService{
     private readonly attendeesRepo: IAttendeesRepository,
   ) { }
   async createAttendees(params: createAttendeesTypeParams): Promise<attendeesResponse> {
+
+    const checkRegistration = await this.attendeesRepo.exists({ email: params.email });
+
+    if (checkRegistration) throw new BadRequestException("E-mail already registered")
     return await this.attendeesRepo.create(params);
   }
 }
