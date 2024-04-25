@@ -16,7 +16,7 @@ export class AttendeesService implements ICreateAttendeesService{
 
     const checkRegistration = await this.attendeesRepo.exists({ email: params.email });
 
-    if (checkRegistration) throw new BadRequestException("E-mail already registered")
+    if (checkRegistration) throw new BadRequestException("Email already registered on the events platform")
     return await this.attendeesRepo.create(params);
   }
 }
